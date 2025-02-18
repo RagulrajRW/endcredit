@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<!--
+    Aerial by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+        <title>Video Name Extractor</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="static/css/main.css" />
+        <noscript><link rel="stylesheet" href="static/css/noscript.css" /></noscript>
+    </head>
+    <body class="is-preload">
+        <div id="wrapper">
+            <div id="bg"></div>
+            <div id="overlay"></div>
+            <div id="main">
+
+                <!-- Header -->
+                <header id="header">
+                    <h1>Video Name Extractor</h1>
+                    <p>Upload a video to extract names using advanced OCR and NER technology.</p>
+
+                    <!-- Upload and Extract Buttons -->
+                    <form method="POST" action="/" enctype="multipart/form-data" style="text-align: center;">
+                        <!-- Upload Button -->
+                        <div class="field">
+                            <label for="video" class="button primary" style="margin-bottom: 20px;">
+                                Upload Video
+                            </label>
+                            <input type="file" id="video" name="video" required style="display: none;">
+                        </div>
+                        <!-- Extract Button -->
+                        <div class="field">
+                            <button type="submit" class="button primary">
+                                Extract Names
+                            </button>
+                        </div>
+                    </form>
+                </header>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <span class="copyright">&copy; Video Name Extractor</a>.</span>
+                </footer>
+
+            </div>
+        </div>
+        <script>
+            // Remove preload class on load
+            window.onload = function() {
+                document.body.classList.remove('is-preload');
+            };
+            window.ontouchmove = function() {
+                return false;
+            };
+            window.onorientationchange = function() {
+                document.body.scrollTop = 0;
+            };
+
+            // Show alert with selected file name
+            document.getElementById('video').addEventListener('change', function(event) {
+                const fileName = event.target.files[0].name;
+                alert('Selected file: ' + fileName);
+            });
+        </script>
+    </body>
+</html>
